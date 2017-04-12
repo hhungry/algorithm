@@ -5,6 +5,8 @@
 #include<climits>
 using namespace std;
 int mostFrenquent(unsigned int *data,unsigned int len){
+    if(data==NULL)
+	return -1;
     int number=0;
     unsigned int curr=data[0];
     for(int i=1;i<len;++i){
