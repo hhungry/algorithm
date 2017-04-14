@@ -2,10 +2,10 @@
 
 using namespace std;
 
-typedef struct listNode{
+typedef struct ListNode{
     int val;
-    struct listNode *next;
-}listNode,*LinkList;
+    struct ListNode *next;
+}ListNode,*LinkList;
 
 void deleteAllSameNode(ListNode **head,int data){
     if(head==NULL||*head==NULL)
