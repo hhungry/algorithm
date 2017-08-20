@@ -2,7 +2,7 @@
 //使用引用计数定义行为像指针的类，类似于shared_ptr
 class HasPtr {
 public:
-    HasPtr(const std::string &s = std::string()) : ps(new std::string(s)), i(0), use(new size_t(1)) { }
+    HasPtr(const std::string &s = std::string()) : ps(new std::string(s)), i(0), use(new size_t(0)) { }
     HasPtr(const HasPtr &hp) : ps(hp.ps), i(hp.i), use(hp.use) { ++*use; }
     HasPtr& operator=(const HasPtr &rhs) {
         ++*rhs.use;
