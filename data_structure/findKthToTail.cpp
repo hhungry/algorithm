@@ -1,3 +1,6 @@
+//标记输入参数的合理性
+bool invalidInput=false;
+
 //链表中倒数第k个节点
 ListNode* findKthToTail(ListNode *L,int i){
     if(L==nullptr||L->next==nullptr){
