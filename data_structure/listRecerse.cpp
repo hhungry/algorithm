@@ -15,6 +15,7 @@ void listReverse(LinkList L){
     }
 }
 
+//用三个指针pre、curr、pnext实现逆置操作
 void listReverse1(ListNode **head){
     if(*head==nullptr)
         return ;
