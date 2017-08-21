@@ -8,3 +8,13 @@ void listPrintRecursively(ListNode *head){
         cout<<head->data<<" ";
     }
 }
+
+//递归方式实现正序打印链表元素
+void listPrintRecursively(ListNode *head){
+    if(head){
+        cout<<head->data<<" ";
+        if(head->next){
+            listPrintRecursively(head->next);
+        }
+    }
+}
