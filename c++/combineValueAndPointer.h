@@ -1,6 +1,8 @@
 #include<iostream>
 #include<string>
 
+//以下分别展示浅拷贝、深拷贝
+
 //行为像指针的类
 class TreeNode{
 private:
