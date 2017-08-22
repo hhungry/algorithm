@@ -9,7 +9,7 @@ void heapAdjust(vector<int>&inputArr,int topIndex,int len)
     {
         if(leftChild+1<len&&inputArr[leftChild+1]>inputArr[leftChild])
             ++leftChild;
-        if(topValue>inputArr[leftChild])
+        if(topValue>=inputArr[leftChild])
             break;
         inputArr[topIndex]=inputArr[leftChild];
         topIndex=leftChild;
