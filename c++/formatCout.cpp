@@ -4,6 +4,7 @@
 #include<iomanip>
 using namespace std;
 
+
 int main()
 {
     int m=0,n=0;
