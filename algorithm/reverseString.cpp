@@ -5,7 +5,6 @@
 #include<climits>
 #include<cstring>
 #include<sstream>
-
 void reverseString(char *pbegin,char *pend)
 {
     if(pbegin==NULL||pend==NULL)
