@@ -18,7 +18,7 @@ class Singleton{
 const Singleton* Singleton::m_instance = new Singleton();
 
 
-//另外一种方式
+//另外一种方式，懒汉模式
 class Singleton{
     private:
         static Singleton * m_instance;
@@ -46,4 +46,16 @@ Singleton* Singleton::getInstance(){
         unlock();
     }
     return m_instance;
+}
+
+//通过定义局部静态变量的方式实现懒汉模式
+class Singleton{
+    private:
+        Singleton(){}
+    public:
+        static Singleton& getInstance(){
+            static Singleton instance;
+            return instance;
+        }
+    
 }
