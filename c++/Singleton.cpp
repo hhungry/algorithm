@@ -55,6 +55,11 @@ class Singleton{
     public:
         static Singleton& getInstance(){
             static Singleton instance;
+            //C++0x之后提供了线程安全保证，不需要用lock()、unlock操作
+            //lock();
+            //static Singleton instance;
+            //unlock();
+            
             return instance;
         }
     
