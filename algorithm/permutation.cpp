@@ -3,7 +3,7 @@
 #include<sstream>
 #include<assert.h>
 using namespace std;
-//×Ö·û´®È«ÅÅÁĞ
+//å­—ç¬¦ä¸²å…¨æ’åˆ—
 void permutation(char *str,char *pbegin){
     if(*pbegin=='\0')
         cout<<str<<endl;
@@ -27,7 +27,25 @@ void permutation(char *str){
 
 }
 
-//Êı×ÖÈ«ÅÅÁĞ
+//å­—ç¬¦ä¸²å…¨æ’åˆ—2ï¼š
+void Permutation(char *pstr,int from,int to){
+    if(from==to)
+        cout<<pstr<<endl;
+    for(int i=from;i<=to;++i){
+        swap(pstr[from],pstr[i]);
+        Permutation(pstr,from+1,to);
+        swap(pstr[from],pstr[i]);
+    }
+}
+void Permutation(char *pstr){
+    if(pstr&&*pstr!='\0'){
+        int from=0;
+        int to=strlen(pstr)-1;
+        Permutation(pstr,from,to);
+    }
+}
+
+//æ•°å­—å…¨æ’åˆ—
 void permutation(int *data,int *pbegin,const int len,int sublen){
     if(sublen==0){
         for(int i=0;i<len;++i)
@@ -54,6 +72,8 @@ void permutation(int *data,int len){
     permutation(data,data,len,sublen);
 
 }
+
+
 int main()
 {
     int a[5]={1,2,3,4,5};
