@@ -5,7 +5,6 @@
 #include<cstring>
 using namespace std;
 
-
 //all combination
 void printAllCombination(char *str){
     if(!str||*str=='\0')
