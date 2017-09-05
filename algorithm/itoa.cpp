@@ -4,8 +4,8 @@
 #include<cstring>
 #include<algorithm>
 using namespace std;
-//可以用streamstring简易实现，此处为手动实现代码
 
+//可以用streamstring简易实现，此处为手动实现代码
 void inversion(char *str){
     int len=strlen(str);
     int i=0,j=len-1;
