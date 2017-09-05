@@ -9,6 +9,8 @@ using namespace std;
 void inversion(char *str){
     int len=strlen(str);
     int i=0,j=len-1;
+    if(*str=='-')
+        i=1;
     while(i<j){
         swap(str[i],str[j]);
         ++i;
@@ -21,17 +23,26 @@ int main(){
    char str[33];
    int curr=0;
    while(cin>>num){
-        
+        if(num==0){
+            str[curr++]='0';
+            str[curr]='\0';
+            cout<<str<<endl;
+            curr=0;
+            continue;
+        }
+        if(num<0){
+            str[curr++]='-';
+            num=-num;
+        }
         while(num){
-            str[curr]='0'+num%10;
+            str[curr++]='0'+num%10;
             num=num/10;
-            ++curr;
         }
         str[curr]='\0';
         cout<<str<<endl;
         inversion(str);
         cout<<str<<endl;
-        
+
         curr=0;
    }
 }
