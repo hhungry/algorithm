@@ -28,9 +28,11 @@ int main(){
     cout<<endl;
 
     int count_pos=0;
+    //not1：模板函数
     count_pos=count_if(ivec.begin(),ivec.end(),not1(is_pos<int>()));
     cout<<count_pos<<endl;
 
+    //bind1st：模板函数
     cout<<bind1st(add_self<int>(),10)(5);
 }
 
