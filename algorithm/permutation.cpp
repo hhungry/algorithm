@@ -82,3 +82,72 @@ int main()
 //    permutation(str);
     return 0;
 }
+
+
+
+
+
+//判断数组元素组成的所有排列中是否存在某排列满足给定条件
+
+#include <iostream>
+using namespace std;
+
+bool isFit(int *data,int len){
+    int i=0;
+    for(;i<len-1;++i){
+        if(data[i]*data[i+1]%4==0)
+            continue;
+        else break;
+    }
+    if(i==len-1)
+        return true;
+    else return false;
+}
+bool Permutation(int *data,int len,int *pbegin,int *pend){
+    if(pbegin==pend){
+        bool rst=isFit(data,len);
+        return rst;
+    }
+    else{
+        for(int *pcurr=pbegin;pcurr<=pend;++pcurr){
+            int tmp=*pcurr;
+            *pcurr=*pbegin;
+            *pbegin=tmp;
+            bool result=Permutation(data,len,pbegin+1,pend);
+            tmp=*pcurr;
+            *pcurr=*pbegin;
+            *pbegin=tmp;
+            if(result)
+                return true;
+            else continue;
+        }
+    }
+    return false;
+
+}
+bool Permutation(int *data,int len){
+    if(!data||len<=0)
+        return false;
+    return Permutation(data,len,data,data+len-1);
+
+}
+int main()
+{
+    int nlist;
+    cin>>nlist;
+
+    int num=0;
+    for(int i=0;i<nlist;++i){
+        cin>>num;
+        int *parray=new int[num];
+        for(int j=0;j<num;++j)
+            cin>>parray[j];
+        bool rst=Permutation(parray,num);
+        if(rst)
+            cout<<"Yes"<<endl;
+        else cout<<"No"<<endl;
+        delete parray;
+        parray=nullptr;
+    }
+    return 0;
+}
