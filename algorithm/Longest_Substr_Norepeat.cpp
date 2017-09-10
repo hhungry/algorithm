@@ -7,6 +7,7 @@
 #include<algorithm>
 using namespace std;
 
+//最长不重复子串
 int Longest_Substr_Norepeat(char *str){
     int hsh[256];
     for(auto &ele:hsh)
