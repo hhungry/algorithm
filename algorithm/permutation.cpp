@@ -86,9 +86,7 @@ int main()
 
 
 
-
 //判断数组元素组成的所有排列中是否存在某排列满足给定条件
-
 #include <iostream>
 using namespace std;
 
