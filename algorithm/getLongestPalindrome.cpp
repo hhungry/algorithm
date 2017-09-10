@@ -1,5 +1,6 @@
 class Palindrome {
 public:
+    //dp方法
     int getLongestPalindrome(string A, int n) {
         // write code here
         if(A.size()==0||A.size()!=n)
@@ -39,5 +40,34 @@ public:
         }
         return maxlen;
         
+    }
+    
+    
+    //中心扩展法
+     int getLongestPalindrome(string A, int n) {
+        // write code here
+        if(A.size()==0||A.size()!=n)
+            return 0;
+        int maxlen=0;
+        int tmp=0;
+        for(int i=0;i<n;++i){
+            for(int j=0;(i-j>=0)&&(i+j)<n;++j){
+                if(A[i-j]==A[i+j]){
+                    tmp=2*j+1;
+                }
+                else break;
+            }
+            if(tmp>maxlen)
+                maxlen=tmp;
+            for(int j=0;(i-j>=0)&&(i+j+1)<n;++j){
+            	if(A[i-j]==A[i+j+1]){
+                    tmp=2*j+2;
+                }
+                else break;
+            }
+            if(tmp>maxlen)
+                maxlen=tmp;
+        }
+        return maxlen;
     }
 };
