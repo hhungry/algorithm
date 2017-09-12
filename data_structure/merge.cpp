@@ -45,7 +45,7 @@ void msort_nonrecursive(vector<int> &src,vector<int>&des){
     }
     int elenum=src.size();
     int len=1;
-    //¿½±´¹¹Ôì
+    //Â¿Â½Â±Â´Â¹Â¹Ã”Ã¬
     vector<int>tmp(src);
     while(len<elenum){
         int s=len;
@@ -59,6 +59,26 @@ void msort_nonrecursive(vector<int> &src,vector<int>&des){
             mergeSort(tmp,des,i,i+s-1,elenum-1);
         }
         tmp=des;
+    }
+}
+void mSort_nonrecursive(vector<int> &src){
+    if(src.size()==0||src.size()==1)
+        return ;
+    int num=src.size();
+    int len=1;
+    int s=0;
+    vector<int> des(src.size());
+    while(len<num){
+        s=len;
+        len=s<<1;
+        int i=0;
+        while(i+len<=num){
+            mergeSort(src,des,i,i+s-1,i+len-1);
+            i=i+len;
+        }
+        if(i+s<num)
+            mergeSort(src,des,i,i+s-1,num-1);
+        src=des;
     }
 }
 int main()
