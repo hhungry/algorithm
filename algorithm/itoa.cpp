@@ -20,8 +20,12 @@ void inversion(char *str){
 
 int main(){
    int num=0;
-   char str[33];
+   long long lnum=0;
+   char str[20];
    int curr=0;
+//   cout<<INT_MIN<<endl;
+//   long long i=INT_MIN;
+//   cout<<-i<<endl;
    while(cin>>num){
         if(num==0){
             str[curr++]='0';
@@ -32,17 +36,24 @@ int main(){
         }
         if(num<0){
             str[curr++]='-';
-            num=-num;
+            //INT_MIN的相反数已经超出整数表示范围，所以提前转型为long long，再做相反数处理
+            lnum=-(long long)num;
+           //cout<<lnum<<endl;
+            while(lnum){
+                str[curr++]='0'+lnum%10;
+                lnum=lnum/10;
+            }
+            str[curr]='\0';
+        }else{
+            while(num){
+                str[curr++]='0'+num%10;
+                num=num/10;
+            }
+            str[curr]='\0';
         }
-        while(num){
-            str[curr++]='0'+num%10;
-            num=num/10;
-        }
-        str[curr]='\0';
         cout<<str<<endl;
         inversion(str);
         cout<<str<<endl;
-
         curr=0;
    }
 }
