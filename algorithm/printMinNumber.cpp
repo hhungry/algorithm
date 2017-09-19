@@ -22,6 +22,7 @@ bool compare(const string &str1,const string &str2){
     if(j<str2.size())
         return false;
 }
+
 bool compare(const string &str1,const string &str2){
     string str1str2=str1+str2;
     string str2str1=str2+str2;
