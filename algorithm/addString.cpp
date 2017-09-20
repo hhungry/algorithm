@@ -12,7 +12,8 @@ string addStrings(string num1, string num2) {
         sum += carry; 
         carry = sum / 10;
         sum = sum % 10;
-        res =  res + to_string(sum);
+        char c=sum+'0';
+        res =  res + c;
     }
     reverse(res.begin(), res.end());
     return res;
