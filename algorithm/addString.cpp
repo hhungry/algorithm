@@ -19,22 +19,38 @@ string addStrings(string num1, string num2) {
 }
 
 //大数相乘
-string multiply(string num1, string num2) {
-    string sum(num1.size() + num2.size(), '0');
-    
-    for (int i = num1.size() - 1; 0 <= i; --i) {
-        int carry = 0;
-        for (int j = num2.size() - 1; 0 <= j; --j) {
-            int tmp = (sum[i + j + 1] - '0') + (num1[i] - '0') * (num2[j] - '0') + carry;
-            sum[i + j + 1] = tmp % 10 + '0';
-            carry = tmp / 10;
+ string multiply(string num1, string num2) {
+        string rst;
+        if(num1.size()==0||num2.size()==0)
+            return rst;
+        int len1=num1.size();
+        int len2=num2.size();
+        vector<int> tmp(len1+len2-1,0);
+        for(int i=0;i<len1;++i){
+            int a=num1[i]-'0';
+            for(int j=0;j<len2;++j){
+                int b=num2[j]-'0';
+                tmp[i+j]+=a*b;
+            }
         }
-        sum[i] += carry;
+        int carry=0;
+        for(int i=tmp.size()-1;i>=0;--i){
+            int val=tmp[i]+carry;
+            tmp[i]=val%10;
+            carry=val/10;
+        }
+        while(carry){
+            int val=carry%10;
+            tmp.insert(tmp.begin(),val);
+            carry=carry/10;
+        }
+        for(auto ele:tmp){
+            char c='0'+ele;
+            rst=rst+c;
+        }
+        if(rst.size()>0&&rst[0]=='0')
+            return string("0");
+        return rst;
+        
+        
     }
-    
-    size_t startpos = sum.find_first_not_of("0");
-    if (string::npos != startpos) {
-        return sum.substr(startpos);
-    }
-    return "0";
-}
