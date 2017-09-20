@@ -57,3 +57,24 @@ int main(){
         curr=0;
    }
 }
+
+
+//当value为INT_MIN时，注意防止溢出
+string intToStr(int value){
+    string str;
+    bool isMinus=(value<0)?true:false;
+    long long lnum=value>=0?value:-(long long)value;
+    if(lnum==0){
+        str=str+'0';
+    }else{
+        while(lnum){
+            char c=lnum%10+'0';
+            str=str+c;
+            lnum=lnum/10;
+        }
+        reverse(str.begin(),str.end());
+        if(isMinus)
+            str='-'+str;
+    }
+    return str;
+}
